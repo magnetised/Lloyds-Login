@@ -1,0 +1,144 @@
+
+body, html {
+	height: 100%;
+}
+#injected-container,
+#injected-overlay {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 2;
+}
+#injected-overlay {
+	background-color: #58c013;
+	opacity: 0.91;
+	z-index: 0;
+}
+#injected-login-holder {
+	position: relative;
+	top: 100px;
+	margin: 0 auto;
+	display: block;
+	width: 300px;
+	border: solid 1px red;
+	z-index: 1;
+	background-color: #111;
+	border: solid 3px #000;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	border-radius: 10px;
+	padding: 50px;
+	padding-bottom: 85px;
+	padding-top: 35px;
+}
+#injected-login-holder h2 {
+	margin: 0 0 20px 0 !important;
+	color: #ccc;
+	font-weight: normal;
+	font-family: "MyriadPro-Light";
+	font-size: 28px;
+	border: none;
+}
+
+#injected-login-holder input.injected {
+	font-family: "MyriadPro-Regular";
+	position: static;
+	top: 0;
+	left: 0;
+	display: block;
+	font-size: 18px;
+	outline: 0;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	border: none;
+	padding: 5px 10px;
+	width: 300px;
+	margin: 0 !important;
+}
+
+#injected-login-holder input.injected + input.injected {
+	margin-top: 20px !important;
+}
+
+#injected-login-holder p {
+	margin-top: 20px;
+	position: relative;
+}
+#injected-login-holder a {
+	font-family: "MyriadPro-Light";
+	display: block;
+	position: absolute;
+	left: 0px;
+	top: 7px;
+	color: #666;
+	text-decoration: none;
+	font-size: 16px;
+	cursor: pointer;
+	padding: 0;
+}
+
+#injected-login-holder a:hover {
+	color: #fff !important;
+}
+
+#injected-login-holder button {
+	font-family: "MyriadPro-Light";
+	border: none;
+	margin: 0;
+	font-size: 20px;
+	color: #fff;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	display: block;
+	background-color: #0058c2;
+	padding: 5px 40px;
+	float: right;
+	position: absolute;
+	right: 0px;
+}
+#injected-sandbox {
+	position: absolute;
+	width: 0;
+	height: 0;
+	display: block;
+}
+
+
+body#inject-config {
+	background-color: #58c013;
+	height: auto;
+}
+
+body#inject-config #outline {
+	width: 200px;
+	display: table;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+
+body#inject-config #outline p {
+	font-family: "MyriadPro-Light";
+	color: #fff;
+}
+body#inject-config a#inject-bookmarklet {
+
+	display: block;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+
+	padding: 5px 40px;
+	background-color: #222;
+
+	width: 8em;
+	text-align: center;
+	font-family: "MyriadPro-Light";
+	color: #fff;
+	text-decoration: none;
+	font-size: 24px;
+}
