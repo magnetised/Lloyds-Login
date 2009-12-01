@@ -17,7 +17,7 @@
 	var d = document;
 	var p = String(window.location.href).split('/');
 	var url = p.slice(0, p.length-1).join('/')
-	var bookmarklet_code = 'javascript:void((function()%20{var%20d=(new%20Date()).valueOf();var%20u="'+url+'";var%20s=document.createElement("script");s.type="text/javascript";s.innerHTML="__injected_base_url=\'"+u+"\';";document.body.appendChild(s);var%20p=document.createElement("script");p.type="text/javascript";p.src=u+"/injected.js?"+d;document.body.appendChild(p)})())'
+	var bookmarklet_code = 'javascript:void((function()%20{var%20d=(new%20Date()).valueOf();var%20u="'+url+'";var%20s=document.createElement("script");s.type="text/javascript";s.innerHTML="__injected_base_url=\'"+u+"\';";document.body.appendChild(s);var%20p=document.createElement("script");p.type="text/javascript";p.src=u+"/lloydslogin.js?"+d;document.body.appendChild(p)})())'
 	var a = d.createElement('a');
 	a.href = bookmarklet_code;
 	a.id = 'inject-bookmarklet';

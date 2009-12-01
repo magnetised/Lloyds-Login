@@ -1,7 +1,19 @@
 (function() {
 	var $D = document, $E = function(t) { return $D.createElement(t); };
 	return {
-		credentials: {},
+		init: function() {
+			this.load_css('lloydslogin');
+			this.login();
+		},
+		load_css: function(name) {
+			var d=(new Date()).valueOf();
+			var p=$E('link');
+			p.rel = "stylesheet";
+			p.type = 'text/css';
+			p.media = 'screen';
+			p.href=__injected_base_url+"/"+name+".css?"+d;
+			$D.body.appendChild(p);
+		},
 		login: function(){
 			this.sandbox = this.launch_sandbox();
 			this.overlay = this.launch_overlay();
@@ -136,5 +148,5 @@
 			this.sandbox.parentNode.removeChild(this.sandbox);
 		}
 	}
-})().login();
+})().init();
 
