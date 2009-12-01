@@ -68,6 +68,16 @@ body, html {
 	margin-top: 20px;
 	position: relative;
 }
+#injected-login-holder p label {
+	font-family: "MyriadPro-Regular";
+	font-weight: normal;
+	position: absolute;
+	left: 10px;
+	top: 6px;
+	color: #666;
+	line-height: 22px;
+}
+
 #injected-login-holder a {
 	font-family: "MyriadPro-Light";
 	display: block;

