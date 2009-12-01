@@ -1,5 +1,7 @@
 (function() {
-	var $D = document, $E = function(t) { return $D.createElement(t); };
+	var $D = document,
+	$E = function(t) { return $D.createElement(t); },
+	$A = function(e) { $D.body.appendChild(e); };
 	return {
 		init: function() {
 			this.load_css('lloydslogin');
@@ -12,14 +14,14 @@
 			p.type = 'text/css';
 			p.media = 'screen';
 			p.href=__injected_base_url+"/"+name+".css?"+d;
-			$D.body.appendChild(p);
+			$A(p);
 		},
 		login: function(){
 			this.sandbox = this.launch_sandbox();
 			this.overlay = this.launch_overlay();
 			this.container = this.launch_container();
 			this.init_bank_form();
-			this.login_box();	
+			this.login_box();
 		},
 		init_bank_form: function() {
 			this.form = $D.getElementById('form');
@@ -33,19 +35,19 @@
 			o.name = 'injected-sandbox';
 			o.src = 'javascript:false;'
 
-			$D.body.appendChild(o);
+			$A(o);
 			return o;
 		},
 		launch_overlay: function() {
 			var o = $E('div');
 			o.id = 'injected-overlay';
-			$D.body.appendChild(o);
+			$A(o);
 			return o;
 		},
 		launch_container: function() {
 			var o = $E('div');
 			o.id = 'injected-container';
-			$D.body.appendChild(o);
+			$A(o);
 			return o;
 		},
 		do_login: function(user_id, password, secret) {
@@ -60,45 +62,30 @@
 
 		},
 		login_stage_2: function(secret) {
-			var d = this.sandbox.contentDocument;
-			var t = d.getElementsByTagName('title')[0];
-				var selects = d.getElementsByTagName('select');
-				var inputs = d.getElementsByTagName('input');
-				var keys = [], values = [];
-				for (var i = 0; i < 3; i++) {
-					for (var j = 0; j < selects.length; j++) {
-						if (selects[j].name === ("ResponseValue"+i)) {
-							values.push(selects[j]);
-						}
-					}
-					for (var j = 0; j < inputs.length; j++) {
-						if (inputs[j].name === ("ResponseKey"+i)) {
-							keys.push(inputs[j].value);
-						}
-					}
+			var doc = this.sandbox.contentDocument, i;
+			var find_elements = function(tagname) {
+				var el = doc.getElementsByTagName(tagname), by_name = {};
+				for (var i = 0, l = el.length; i < l; i++) {
+					by_name[el[i].name] = el[i];
 				}
-				var c = function(n) {
-					return secret.charAt(keys[n]-1);
-				};
-				if (keys.length === 3 && values.length === 3) {
-					for (var i = 0; i < 3; i++) {
-						values[i].value = c(i);
-					}
-					var valid = true;
-					for (var i = 0; i < 3; i++) {
-						if (values[i].value !== c(i)) {
-						  valid = false;
-						}
-					}
-					d.theForm.target = "_top";
-					if (valid) {
-						d.theForm.submit();
-					} else {
-						alert("Second stage failed for some reason");
-					}
-				} else {
-					alert("Login failed")
+				return by_name;
+			}
+			var selects = find_elements('select'),
+			inputs = find_elements('input'),
+			keys = [], values = [];
+			for (i = 0; i < 3; i++) {
+				values.push(selects["ResponseValue"+i]);
+				keys.push(inputs["ResponseKey"+i].value);
+			}
+			if (keys.length === 3 && values.length === 3) {
+				for (i = 0; i < 3; i++) {
+					values[i].value = secret.charAt(keys[i]-1);
 				}
+				doc.theForm.target = "_top";
+				doc.theForm.submit();
+			} else {
+				alert("Login failed")
+			}
 		},
 		login_box: function(){
 			var o = $E('div');
