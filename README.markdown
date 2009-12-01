@@ -25,7 +25,9 @@ This script allows you to enter the memorable string into a password field as yo
 
 This increases both the security and speed of logging in to your bank.
 
-Security is increased because you can have a very complex, very un-memorable "memorable" string and not have to let anyone passing see it every time you login. Speed is improved because you only have to enter one set of info and skip the tedious second stage completely because it's done for you.
+Security is increased because you can have a very complex, very un-memorable "memorable" string and not have to let anyone passing see it every time you login. Speed is improved because you only have to enter one set of info and avoid the tedious second stage completely because it's done for you.
+
+For those worried about key loggers -- perhaps rightly so -- there is one simple solution: don't use a windows machine to log into your bank. Note that using 1Password on the Mac (or it's Windows equivalent) means that you never actually type anything and none of your login information appears on the screen at any point.
 
 How it works
 ------------
