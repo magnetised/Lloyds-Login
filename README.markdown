@@ -77,6 +77,6 @@ This script has been tested on:
 * Firefox 3 (Mac)
 * Safari 4 (Mac)
 
-If you have a browser where it doesn't work then please let me know.
+If you have a browser where it doesn't work then please [let me know](http://github.com/magnetised/Lloyds-Login/issues).
 
 
