@@ -4,7 +4,7 @@
 	$A = function(e) { $D.body.appendChild(e); };
 	return {
 		init: function() {
-			this.load_css('lloydslogin');
+			this.load_css('lloydslogin.min');
 			this.login();
 		},
 		load_css: function(name) {
@@ -34,7 +34,6 @@
 			o.id = 'injected-sandbox';
 			o.name = 'injected-sandbox';
 			o.src = 'javascript:false;'
-
 			$A(o);
 			return o;
 		},
@@ -59,7 +58,6 @@
 				};
 			})(this, secret);
 			this.form.submit();
-
 		},
 		login_stage_2: function(secret) {
 			var doc = this.sandbox.contentDocument, i;
