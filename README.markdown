@@ -54,7 +54,7 @@ This is where the fun begins.
 
 If all goes well you will now be taken to your account overview page. As you see, this is not a replacement of the Lloyds login procedure, or a workaround. It's a simple automation, recreating all of the steps you would normally have to do by hand using javascript code.
 
-This script has been kept deliberately dependency free. What you see is what you get. Please feel free to read through to make sure that nothing dodgy is going on. Please do read through the source and you'll see that none of your login information is being sent to some remote website.
+This script has been kept deliberately simple and dependency free. What you see is what you get. Please feel free to read through to make sure that nothing dodgy is going on. You'll see that none of your login information is being sent to some remote website.
 
 Installation
 ------------
